@@ -1,9 +1,9 @@
-import React, {useState} from "react"
-function BottomButtons(){
-    const [homeScore, setHomeScore] = useState(0);
-    const [awayScore, setAwayScore] = useState(0);
+import React  from "react"
+function BottomButtons(props){
+    const {homeScore, setHomeScore} = props
+    const {awayScore, setAwayScore} = props
     return (
-        <section className="buttons">
+      <section className="buttons">
         <div className="homeButtons">
           {/* TODO STEP 4 - Now we need to attach our state setter functions to click listeners. */}
           <button onClick = {() => setHomeScore(homeScore + 7)} className="homeButtons__touchdown">Home Touchdown</button>
@@ -11,7 +11,11 @@ function BottomButtons(){
         </div>
         <div className="awayButtons">
           <button onClick = {() => setAwayScore(awayScore + 7)}className="awayButtons__touchdown">Away Touchdown</button>
-          <button onClick = {() => setAwayScore(awayScore + 3)} className="awayButtons__fieldGoal">Away Field Goal</button>
+          <button onClick = {() =>setAwayScore(awayScore + 3)} className="awayButtons__fieldGoal">Away Field Goal</button>
+        </div>
+        <div>
+        <button onClick = {() => setHomeScore(0)} className = "homeButtons__touchdown">Reset Home Score</button>
+        <button onClick = {() => setAwayScore(0)} className = "homeButtons__fieldGoal">Reset Away Score</button>
         </div>
       </section>
     )
